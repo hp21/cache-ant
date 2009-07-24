@@ -34,12 +34,14 @@ public class CacheHelper {
 		for (int i = 0; i < params.length; i++) {
 			Dataholder holder;
 
-			if (params[i] instanceof String) {
-				holder = new Dataholder((String) params[i]);
-			} else if (params[i] instanceof Integer) {
-				holder = new Dataholder((Integer) params[i]);
+			Object currentParam = params[i];
+			
+			if (currentParam instanceof String) {
+				holder = new Dataholder((String) currentParam);
+			} else if (currentParam instanceof Integer) {
+				holder = new Dataholder((Integer) currentParam);
 			} else {
-				throw new RuntimeException("Can not use parameter type: " + params[i].getClass().getName());
+				throw new RuntimeException("Can not use parameter type: " + currentParam.getClass().getName());
 			}
 
 			methodParams[i] = holder;
