@@ -7,6 +7,7 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.Task;
 
+import com.googlecode.cacheant.helper.CacheHelper;
 import com.intersys.objects.CacheDatabase;
 import com.intersys.objects.CacheException;
 import com.intersys.objects.Database;
@@ -31,8 +32,8 @@ public class CacheCompileTask extends Task {
 	private String password;
 
 	public CacheCompileTask() {
-		user = "SYSTEM";
-		password = "_SYS";
+		user = "_SYSTEM";
+		password = "sys";
 	}
 
 	@Override
@@ -41,7 +42,10 @@ public class CacheCompileTask extends Task {
 		checkParams();
 
 		try {
-			Database db = CacheDatabase.getDatabase(url, user, password);
+			Database db = CacheDatabase.getDatabase(url/*, user, password*/);
+			CacheHelper helper = new CacheHelper(db);
+			helper.callMethod("%SYSTEM.OBJ", "Compile", new Object[] {"hp.HPUser"});
+			
 			
 		} catch (CacheException e) {
 			throw new BuildException(e);

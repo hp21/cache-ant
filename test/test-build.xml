@@ -12,7 +12,7 @@
             description
     </description>
 
-	<property name="classes" location="../classes" />
+	<property name="classes" location="../classes;../lib/CacheDB.jar" />
 
 
 	<taskdef resource="com/googlecode/cacheant/tasks.properties" classpath="${classes}" />
@@ -22,10 +22,10 @@
           target: default              
          ================================= -->
 	<target name="default" depends="depends" description="description">
+		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" classes="hp.HPUser" />
 		<cache-compile url="dddd" projectName="ssdsf" />
 		<cache-compile url="dddd" package="package" />
 		<cache-compile url="dddd" itemList="as,sdf,fgfgdg,erer" />
-		<cache-compile url="dddd" classes="as,sdf,fgfgdg,erer" />
 		<cache-compile classes="as,sdf,fgfgdg,erer" />
 	</target>
 

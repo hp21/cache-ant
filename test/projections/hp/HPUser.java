@@ -8,7 +8,7 @@ package hp;
 **/
 
 public class HPUser extends com.intersys.classes.RegisteredObject implements java.io.Serializable {
-    private static final long serialVersionUID = 2271;
+    private static final long serialVersionUID = 212;
     private static String CACHE_CLASS_NAME = "hp.HPUser";
     /**
            <p>NB: DO NOT USE IN APPLICATION(!!!).
@@ -139,6 +139,18 @@ That is 'isclass' is a primary superclass of this object.</p>
         com.intersys.cache.Dataholder[] args = new com.intersys.cache.Dataholder[1];
         args[0] = new com.intersys.cache.Dataholder(isclass);
         com.intersys.cache.Dataholder res=db.runClassMethod(CACHE_CLASS_NAME,"%IsA",args,com.intersys.objects.Database.RET_PRIM);
+        return res.getInteger();
+    }
+    /**
+     <p>Runs method decrement in Cache.</p>
+     @param inc represented as java.lang.Integer
+     @throws com.intersys.objects.CacheException if any error occured while running the method.
+     @see <a href = "http://u292148n1:57772/csp/documatic/%25CSP.Documatic.cls?APP=1&PAGE=CLASS&LIBRARY=SAMPLES&CLASSNAME=hp.HPUser#decrement"> Method decrement</A>
+    */
+    public java.lang.Integer decrement (java.lang.Integer inc) throws com.intersys.objects.CacheException {
+        com.intersys.cache.Dataholder[] args = new com.intersys.cache.Dataholder[1];
+        args[0] = new com.intersys.cache.Dataholder(inc);
+        com.intersys.cache.Dataholder res=mInternal.runInstanceMethod("decrement",args,com.intersys.objects.Database.RET_PRIM);
         return res.getInteger();
     }
     /**
