@@ -44,7 +44,7 @@ public class CacheCompileTask extends Task {
 		try {
 			Database db = CacheDatabase.getDatabase(url/*, user, password*/);
 			CacheHelper helper = new CacheHelper(db);
-			helper.callMethod("%SYSTEM.OBJ", "Compile", new Object[] {"hp.HPUser"});
+			helper.callMethod("%SYSTEM.OBJ", "Compile", new Object[] {"hp.HPUser"}); //FIXME
 			
 			
 		} catch (CacheException e) {
