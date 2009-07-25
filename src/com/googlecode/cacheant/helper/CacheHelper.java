@@ -16,12 +16,7 @@ public class CacheHelper {
 	/**
 	 * Calls a cahce class method from Java.
 	 * 
-	 * @param className
-	 *          whose method to call.
-	 * @param methodName
-	 *          to call.
-	 * @param params
-	 *          for the method.
+	 * @param cparams
 	 * @return
 	 * @throws CacheException
 	 */
@@ -44,14 +39,16 @@ public class CacheHelper {
 				holder = new Dataholder((Boolean) currentParam);
 			} else {
 				throw new RuntimeException("Can not use parameter type: "
-				    + currentParam.getClass().getName());
+						+ currentParam.getClass().getName());
 			}
 
 			methodParams[i] = holder;
 		}
 
+
+		//TODO: Check for return condition in CParam.
 		ret = database.runClassMethod(cparams.getcClazz(), cparams.getCmethod(), methodParams,
-		    Database.RET_PRIM);
+				Database.RET_PRIM);
 
 		return 1 == ret.getIntValue();
 	}
