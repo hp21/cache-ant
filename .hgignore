@@ -5,3 +5,5 @@ syntax: regexp
 ^lib/CacheDB\.jar$
 syntax: regexp
 ^\.settings$
+syntax: regexp
+^target$

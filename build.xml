@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2009.07.27. 12:02:35                                                        
+
+     project    
+     description
+                   
+     u292148                                                                
+     ====================================================================== -->
+<project name="project" default="build">
+	<description>
+            description
+    </description>
+
+
+	<!-- Copy targets -->
+	<property name="target" value="target" />
+	<property name="target.source" value="${target}/source" />
+	<property name="target.classes" value="${target}/classes" />
+	<property name="target.lib" value="${target}/lib" />
+	<property name="target.resources" value="${target.classes}" />
+	<property name="target.build" value="${target}" />
+	<property name="manifest.dir" value="${target}/META-INF" />
+	<property name="manifest.mf" value="${manifest.dir}/MANIFEST.MF" />
+
+	<!-- Input resources-->
+	<property name="src" value="src" />
+	<property name="resources" value="resources" />
+	<property name="lib" value="lib" />
+
+
+	<target name="setup" description="Sets up the build target structure">
+		
+	  <tstamp />
+		
+		<delete dir="${target}" />
+		<mkdir dir="${target}" />
+		<mkdir dir="${target.classes}" />
+		<mkdir dir="${target.build}" />
+		<mkdir dir="${manifest.dir}" />
+
+		<copy todir="${target.source}">
+			<fileset dir="${src}" includes="**/*" />
+		</copy>
+
+		<copy todir="${target.classes}">
+			<fileset dir="${resources}" includes="**/*" />
+		</copy>
+
+		<copy todir="${target.lib}">
+			<fileset dir="${lib}" includes="**/*.jar" />
+		</copy>
+
+		<manifest file="${manifest.mf}">
+			<attribute name="Built-On" value="${DSTAMP}-${TSTAMP}" />
+			<attribute name="Project-Location" value="http://code.google.com/p/cache-ant/" />
+		</manifest>
+	</target>
+
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+	<target name="compile" depends="setup" description="Compiles project">
+		<javac source="1.5" destdir="${target.classes}" srcdir="${target.source}">
+			<classpath>
+				<fileset dir="${target.lib}" includes="**/*.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- ================================= 
+          target: build              
+         ================================= -->
+	<target name="build" depends="compile" description="Packages the Ant task for use">
+		<jar destfile="${target.build}/cache-ant.jar" manifest="${manifest.mf}" basedir="${target.classes}" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="depends">
+	</target>
+
+</project>
