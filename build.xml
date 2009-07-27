@@ -22,6 +22,7 @@
 	<property name="target.build" value="${target}" />
 	<property name="manifest.dir" value="${target}/META-INF" />
 	<property name="manifest.mf" value="${manifest.dir}/MANIFEST.MF" />
+	<property name="version" value="0.5-ALPHA" />
 
 	<!-- Input resources-->
 	<property name="src" value="src" />
@@ -54,6 +55,7 @@
 		<manifest file="${manifest.mf}">
 			<attribute name="Built-On" value="${DSTAMP}-${TSTAMP}" />
 			<attribute name="Project-Location" value="http://code.google.com/p/cache-ant/" />
+			<attribute name="Release" value="${version}" />
 		</manifest>
 	</target>
 
@@ -72,7 +74,7 @@
           target: build              
          ================================= -->
 	<target name="build" depends="compile" description="Packages the Ant task for use">
-		<jar destfile="${target.build}/cache-ant.jar" manifest="${manifest.mf}" basedir="${target.classes}" />
+		<jar destfile="${target.build}/cache-ant-${version}.jar" manifest="${manifest.mf}" basedir="${target.classes}" />
 	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
