@@ -27,7 +27,7 @@
 		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" classes="hp.HPUser,hp.Address" />
 		<!-- does not work yes <cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" projectname="SAMPLES" />-->
 		<!-- compile all can take a lot of time-->
-		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" all="yes" />
+		<!--<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" all="yes" />-->
 	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
