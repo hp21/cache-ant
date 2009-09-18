@@ -5,7 +5,7 @@
      project    
      description
                    
-     u292148                                                                
+     HP                                                                
      ====================================================================== -->
 <project name="project" default="default">
 	<description>
