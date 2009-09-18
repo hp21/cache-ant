@@ -69,8 +69,8 @@ public class CacheCompileTask extends Task {
   }
 
   public CacheCompileTask() {
-    user = "_SYSTEM";
-    password = "sys";
+    user = null;
+    password = null;
   }
 
   @Override
@@ -82,7 +82,8 @@ public class CacheCompileTask extends Task {
     Database db = null;
 
     try {
-      db = CacheDatabase.getDatabase(url/* , user, password */);
+      db = (null == user && null == password) ? CacheDatabase.getDatabase(url) : CacheDatabase
+          .getDatabase(url, user, password);
       CacheHelper helper = new CacheHelper(db);
 
       CParams cparams = new ParamBuilder().buildParams();

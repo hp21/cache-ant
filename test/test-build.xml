@@ -22,7 +22,8 @@
           target: default              
          ================================= -->
 	<target name="default" depends="depends" description="description">
-		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" classes="hp.HPUser" />
+		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" classes="hp.HPUser"/>
+		<!--<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" user="HP" password="12345678" classes="hp.HPUser" />-->
 		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" package="hp" />
 		<cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" classes="hp.HPUser,hp.Address" />
 		<!-- does not work yes <cache-compile url="jdbc:Cache://localhost:1972/SAMPLES" projectname="SAMPLES" />-->
