@@ -8,7 +8,7 @@ package hp;
 **/
 
 public class HPUser extends com.intersys.classes.RegisteredObject implements java.io.Serializable {
-    private static final long serialVersionUID = 1602;
+    private static final long serialVersionUID = 2962;
     private static String CACHE_CLASS_NAME = "hp.HPUser";
     /**
            <p>NB: DO NOT USE IN APPLICATION(!!!).

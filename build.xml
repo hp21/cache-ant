@@ -5,7 +5,7 @@
      project    
      description
                    
-     u292148                                                                
+     HP                                                                
      ====================================================================== -->
 <project name="project" default="build">
 	<description>
@@ -22,7 +22,7 @@
 	<property name="target.build" value="${target}" />
 	<property name="manifest.dir" value="${target}/META-INF" />
 	<property name="manifest.mf" value="${manifest.dir}/MANIFEST.MF" />
-	<property name="version" value="0.5-ALPHA" />
+	<property name="version" value="0.6-ALPHA" />
 
 	<!-- Input resources-->
 	<property name="src" value="src" />
@@ -77,10 +77,5 @@
 		<jar destfile="${target.build}/cache-ant-${version}.jar" manifest="${manifest.mf}" basedir="${target.classes}" />
 	</target>
 
-	<!-- - - - - - - - - - - - - - - - - - 
-          target: depends                      
-         - - - - - - - - - - - - - - - - - -->
-	<target name="depends">
-	</target>
 
 </project>
